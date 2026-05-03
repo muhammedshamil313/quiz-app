@@ -1,12 +1,19 @@
 const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
-app.use(cors());
+
+// ✅ FIX CORS
+app.use(cors({
+  origin: "*"
+}));
+
 app.use(express.json());
 
-const FILE = "questions.json";
+// ✅ FIX FILE PATH
+const FILE = path.join(__dirname, "questions.json");
 
 // READ
 app.get("/questions", (req, res) => {
@@ -38,4 +45,6 @@ app.delete("/questions/:id", (req, res) => {
     res.send("Deleted");
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// ✅ FIX PORT (VERY IMPORTANT)
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log("Server running on port " + PORT));
