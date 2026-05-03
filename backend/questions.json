@@ -1,12 +1,52 @@
 [
   {
     "question": "What is HTML?",
-    "options": ["Markup", "Programming", "Database", "OS"],
-    "answer": "Markup"
+    "options": ["Markup Language", "Programming Language", "Database", "Operating System"],
+    "answer": "Markup Language"
   },
   {
     "question": "CSS stands for?",
-    "options": ["Cascading Style Sheets", "Code Style", "Color Sheet", "None"],
+    "options": ["Cascading Style Sheets", "Computer Style Sheet", "Creative Style System", "None"],
     "answer": "Cascading Style Sheets"
+  },
+  {
+    "question": "Which language is used for web apps?",
+    "options": ["Python", "JavaScript", "Java", "All of the above"],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which is not a programming language?",
+    "options": ["HTML", "Python", "Java", "C++"],
+    "answer": "HTML"
+  },
+  {
+    "question": "Which company developed Java?",
+    "options": ["Microsoft", "Sun Microsystems", "Google", "Apple"],
+    "answer": "Sun Microsystems"
+  },
+  {
+    "question": "Which symbol is used for comments in JavaScript?",
+    "options": ["//", "<!-- -->", "#", "**"],
+    "answer": "//"
+  },
+  {
+    "question": "Which HTML tag is used to display images?",
+    "options": ["<img>", "<image>", "<pic>", "<src>"],
+    "answer": "<img>"
+  },
+  {
+    "question": "Which CSS property is used to change text color?",
+    "options": ["font-color", "text-color", "color", "background-color"],
+    "answer": "color"
+  },
+  {
+    "question": "Which method is used to print in JavaScript?",
+    "options": ["print()", "console.log()", "echo()", "display()"],
+    "answer": "console.log()"
+  },
+  {
+    "question": "Which database is NoSQL?",
+    "options": ["MySQL", "Oracle", "MongoDB", "PostgreSQL"],
+    "answer": "MongoDB"
   }
 ]
