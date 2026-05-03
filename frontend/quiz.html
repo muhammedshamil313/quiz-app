@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <!-- Question -->
+    <h2 id="question">Loading...</h2>
+
+    <!-- Options -->
+    <div id="options"></div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button onclick="prevQ()">⬅ Previous</button>
+        <button id="nextBtn" onclick="nextQ()">Next ➡</button>
+    </div>
+
+</div>
+
+<!-- Script -->
+<script>
+let questions = [];
+let current = 0;
+let answers = [];
+
+// 🔁 Fetch questions from backend
+fetch("https://your-backend-url.onrender.com/questions")
+.then(res => res.json())
+.then(data => {
+    questions = shuffle(data).slice(0, 10); // pick 10 random questions
+    loadQ();
+});
+
+// 🔀 Shuffle function
+function shuffle(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+}
+
+// 📌 Load Question
+function loadQ() {
+    let q = questions[current];
+
+    document.getElementById("question").innerText = `Q${current + 1}. ${q.question}`;
+
+    let optDiv = document.getElementById("options");
+    optDiv.innerHTML = "";
+
+    q.options.forEach(opt => {
+        let btn = document.createElement("div");
+        btn.innerText = opt;
+        btn.classList.add("option");
+
+        // Highlight selected
+        if (answers[current] === opt) {
+            btn.classList.add("selected");
+        }
+
+        btn.onclick = () => {
+            answers[current] = opt;
+            loadQ();
+        };
+
+        optDiv.appendChild(btn);
+    });
+
+    // 📊 Progress Bar Update
+    let progress = ((current + 1) / 10) * 100;
+    document.getElementById("progress").style.width = progress + "%";
+
+    // 🔁 Change button text on last question
+    if (current === 9) {
+        document.getElementById("nextBtn").innerText = "Submit ✅";
+    } else {
+        document.getElementById("nextBtn").innerText = "Next ➡";
+    }
+}
+
+// ➡ Next
+function nextQ() {
+    if (current === 9) {
+        submitQuiz();
+        return;
+    }
+    current++;
+    loadQ();
+}
+
+// ⬅ Previous
+function prevQ() {
+    if (current > 0) {
+        current--;
+        loadQ();
+    }
+}
+
+// 🧮 Submit Quiz
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((q, i) => {
+        if (q.answer === answers[i]) {
+            score++;
+        }
+    });
+
+    localStorage.setItem("score", score);
+    window.location.href = "result.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "question": "What is HTML?",
+    "options": ["Markup", "Programming", "Database", "OS"],
+    "answer": "Markup"
+  },
+  {
+    "question": "CSS stands for?",
+    "options": ["Cascading Style Sheets", "Code Style", "Color Sheet", "None"],
+    "answer": "Cascading Style Sheets"
+  }
+]

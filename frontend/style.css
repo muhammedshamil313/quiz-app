@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    color: white;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Heading */
+h1 {
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Options */
+.option {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.option:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.selected {
+    background: #00c9a7 !important;
+    color: black;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff7a18, #ffb347);
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #00c9a7;
+    width: 0%;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+    }
+}
+
+/* 💻 Tablet */
+@media (min-width: 768px) {
+    .container {
+        max-width: 500px;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
